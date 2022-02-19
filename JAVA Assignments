@@ -1,0 +1,101 @@
+/* 
+                             Name:- Aknandan Kumar
+                             Roll no:- AA.SC.P2MCA2107009
+*/
+class MyClass{
+    public MyClass(){
+        System.out.println("Lab Based Assignment - Class & Object");
+    }
+}
+class Student{
+    private int StudentId = 2107009;
+    public Student(){
+        System.out.println("This is Student id: " +StudentId);
+    }
+}
+class Person{
+    private int id;
+    private int dateofbirth;
+    private String name;
+   
+    public int getId(){
+        return id;
+    }
+    public void setId(int id){
+        this.id=id;
+    }
+    public int getDateofbirth(){
+        return dateofbirth;
+    }
+    public void setDateofbirth(int dateofbirth){
+        this.dateofbirth=dateofbirth;
+    }
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name=name;
+    }
+}
+
+class Course{
+     int Course_code;
+     String Course_title;
+     String Study_program;
+
+     public int getCoursecode(){
+         return Course_code;
+     }
+     public void setCoursecode(int Course_code){
+         this.Course_code=Course_code;
+     }
+     public String getCoursetitle(){
+         return Course_title;
+     }
+     public void setCoursetitle(String Course_title){
+         this.Course_title=Course_title;
+     }
+     public String getStudyprogram(){
+         return Study_program;
+     }
+     public void setStudyprogram(String Study_program){
+         this.Study_program=Study_program;
+     }
+}
+
+
+public class Assimient {
+    public static void main(String[] args) {
+        
+//  1) "MyClass" class with 
+
+        MyClass m=new MyClass();
+
+//  2) "Student" class with
+
+        Student s=new Student();
+
+//  3) "Person" class with
+
+        Person p=new Person();
+        p.setName("Aknandan kumar sharma");
+        p.setId(2107009);
+        p.setDateofbirth(531998);
+        System.out.println("Person Name Is: "+p.getName());
+        System.out.println("Person Id Is: " +p.getId());
+        System.out.println("Person Date-of-birth Is: "+p.getDateofbirth());
+
+//  4) "Course" class with
+
+      Course co=new Course();
+      co.setCoursecode(88208283);
+      co.setCoursetitle("Object oriented programming using JAVA");
+      co.setStudyprogram("MCA in Computer Application");
+      System.out.println("This course code is: " +co.getCoursecode());
+      System.out.println("This course title is: " +co.getCoursetitle());
+      System.out.println("The Program is: " +co.getStudyprogram());
+    
+
+    }
+    
+}
