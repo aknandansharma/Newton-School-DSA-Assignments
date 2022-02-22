@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] output = new int[n];
+        int count = 0;
+        for(int i = 0;i<n;i++){
+            output[i] = sc.nextInt();
+        }
+        for(int j=0;j<n;j++){
+            if(output[j] % 2== 0){
+                System.out.print(output[j] + " ");
+                count++;
+            }
+        }
+        if(count == 0){
+            System.out.print("NIL");
+        }
+    }
+}
