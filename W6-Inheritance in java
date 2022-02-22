@@ -1,0 +1,269 @@
+import javax.swing.plaf.synth.SynthConstants;
+import javax.swing.text.DefaultStyledDocument.ElementSpec;
+
+/* 
+                             Name:- Aknandan Kumar
+                             Roll no:- AA.SC.P2MCA2107009
+*/
+
+// A Building class with-
+class Building {
+    String name;
+    int Building_code;
+    String Location;
+    int No_of_floors;
+    Float Total_area;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getBuildingcode() {
+        return Building_code;
+    }
+
+    public void setBuildingcode(int Building_code) {
+        this.Building_code = Building_code;
+    }
+
+    public String getLocation() {
+        return Location;
+    }
+
+    public void setLocation(String Location) {
+        this.Location = Location;
+    }
+
+    public int getNooffloors() {
+        return No_of_floors;
+    }
+
+    public void setNooffloors(int No_of_floors) {
+        this.No_of_floors = No_of_floors;
+    }
+
+    public Float getTotalarea() {
+        return Total_area;
+    }
+
+    public void setTotalarea(Float area) {
+        this.Total_area = Total_area;
+    }
+}
+
+// A Department class with-
+class Department {
+    String name = "Computer Applicaton";
+    String Buliding = "Computer Science Engineering";
+    String Hod = "Mata amritanandamayi Devi";
+    String[] list_of_employee = { "Ms. Haritha R", "Ms. Haritha R", "Adarsh Ranjan", "Dr. Thushara M",
+            "Ms. Neeraja R Menon", "Ms. Nayana Das", "Bri. Dhivvya J P" };
+
+    public void PrintDepart() {
+        System.out.println("Department name is: " + name);
+        System.out.println("Department Buliding name is: " + Buliding);
+        System.out.println("Head of Department name is: " + Hod);
+        for (int index = 0; index < list_of_employee.length; index++) {
+            System.out.println("Department Employees is: " + list_of_employee[index]);
+        }
+    }
+
+}
+
+// A Person class with-
+class Person {
+    String name;
+    String gender;
+    int date_of_borth;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getDateofbirth() {
+        return date_of_borth;
+    }
+
+    public void setDateofbirth(int date_of_borth) {
+        this.date_of_borth = date_of_borth;
+    }
+}
+
+// Employee is subclass is Person-
+class Employee extends Person {
+    int employee_id;
+    String department;
+    String designation;
+    String email_id;
+    String phone_number;
+    double salary;
+
+    public int getEmployeeid() {
+        return employee_id;
+    }
+
+    public void setEmployeeid(int employee_id) {
+        this.employee_id = employee_id;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String Designation) {
+        this.designation = designation;
+    }
+
+    public String getEmailid() {
+        return email_id;
+    }
+
+    public void setEmailid(String email_id) {
+        this.email_id = email_id;
+    }
+
+    public String getPhonenumber() {
+        return phone_number;
+    }
+
+    public void setPhonenumber(String phone_number) {
+        this.phone_number = phone_number;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+}
+
+// Employee has two subclasses:-
+// First is MedicalStaff-
+class MedicalStaff extends Employee {
+    String speci = "Eye Splist";
+    int reg_no = 8130840;
+    int yers = 40;
+
+    public void printMediStaff() {
+        System.out.println("Employee Specialization in : " + speci);
+        System.out.println("Employee registration no is : " + reg_no);
+        System.out.println("Employee medical experience is : " + yers + "Years");
+
+    }
+}
+
+// and second is NonMedicalStaff-
+class NonMedicalStaff extends Employee {
+    String Admini_staff = "Anjali Krishna";
+    Boolean admini_staff = true;
+    String Manger = "Satyanandan swami";
+    Boolean manager = true;
+
+    public void printNonMedStaff() {
+        System.out.println("This is a Administrtive staff is: " + Admini_staff + admini_staff);
+        System.out.println("This is a Manager staff is: " + Manger + manager);
+    }
+}
+
+// Hospital class with-
+class Hospital {
+    String name = "Amrita University Hospital";
+    String Location = "Amritanagar,p.o.,Coimbatore";
+    int list_of_department = 42;
+
+    public void printHos() {
+        System.out.println("This Is: " + name);
+        System.out.println("At the hospital is: " + Location);
+        System.out.println("The list of department is: " + list_of_department);
+    }
+}
+
+public class W6_Assignment_on_Inheritance {
+    public static void main(String[] args) {
+
+        // Class Building Print:-
+        System.out.println("------------------------Class Building-----------------------");
+        Building b = new Building();
+        b.setName("Computer Application Building");
+        b.setBuildingcode(2107009);
+        b.setLocation("Amritanagar,p.o.,Coimbatore");
+        b.setNooffloors(420);
+        b.setTotalarea(188.12f);
+        System.out.println("This Building name is: " + b.getName());
+        System.out.println("This Building code is: " + b.getBuildingcode());
+        System.out.println("This Building Location is: " + b.getLocation());
+        System.out.println("This Building no of floors is: " + b.getNooffloors());
+        System.out.println("This Building total area is: " + b.getTotalarea());
+        System.out.println("-------------------------------End Building-----------------");
+
+        System.out.println("----------------------------Class Department----------------");
+        Department d = new Department();
+        d.PrintDepart();
+        System.out.println("----------------------------End Department------------------");
+        System.out.println("----------------------------Class Person--------------------");
+        Person p = new Person();
+        p.setName("Aknandan Sharma");
+        p.setGender("Male");
+        p.setDateofbirth(531998);
+        System.out.println("Person name is: " + p.getName());
+        System.out.println("Person Gender is: " + p.getGender());
+        System.out.println("Person date of birth is: " + p.getDateofbirth());
+        System.out.println("----------------------------End Person----------------------");
+        System.out.println("----------------------------Class Employee------------------");
+        Employee e = new Employee();
+        e.setEmployeeid(0500);
+        e.setDepartment("Computer Application");
+        e.setDesignation("I am java teacher");
+        e.setEmailid("aknandansharma@gmail.com");
+        e.setPhonenumber("8757792653");
+        e.setSalary(932500.28);
+        System.out.println("Employee id is: " + e.getEmployeeid());
+        System.out.println("Employee department is: " + e.getDepartment());
+        System.out.println("Employee designation is: " + e.getDesignation());
+        System.out.println("Employee email_id is: " + e.getEmailid());
+        System.out.println("Employee phone number is: " + e.getPhonenumber());
+        System.out.println("Employee salary is: " + e.getSalary());
+        System.out.println("----------------------------End Employee----------------------");
+        System.out.println("----------------------------Sub Class MedicalStaff------------");
+        MedicalStaff m = new MedicalStaff();
+        m.printMediStaff();
+        System.out.println("----------------------------End MedicalStaff------------------");
+        System.out.println("----------------------------Sub Class NonMedicalStaff---------");
+        NonMedicalStaff n = new NonMedicalStaff();
+        n.printNonMedStaff();
+        System.out.println("----------------------------End NonMedicalStaff---------------");
+        System.out.println("----------------------------Class Hospital--------------------");
+        Hospital h = new Hospital();
+        h.printHos();
+        System.out.println("----------------------------End Hospital----------------------");
+
+    }
+
+}
