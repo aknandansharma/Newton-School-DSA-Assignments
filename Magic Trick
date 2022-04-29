@@ -1,0 +1,32 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+import java.util.Scanner;
+
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+                      // Your code here
+
+		Scanner sc = new Scanner(System.in);
+		/*
+		int a=sc.nextInt();
+		int b=sc.nextInt();
+		int res=(a+b)-2;
+		System.out.println(res);
+		*/
+		int x=8;
+
+		int A=sc.nextInt();
+		int z=(A+x)*2;
+
+
+		int B=sc.nextInt();
+		int h=(z+B)/2;
+		int g=h-x;
+		
+	
+
+	}
+}
