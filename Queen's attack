@@ -1,0 +1,24 @@
+static int QueenAttack(int X, int Y, int P, int Q){
+//Enter your code here
+// if Queen and the opponent are in the same row 
+if(X==P){
+    return 1;
+}
+// if Queen and opponent are in the same column
+if(Y==Q){
+    return 1;
+}
+// if Queen can attack digonally
+if(Math.abs(X-P)==Math.abs(Y-Q)){
+    return 1;
+}
+// openent is safe
+else{
+    return 0;
+}
+
+// this is solved by Aknandan kumar you can search in the web this Quesation not solve any of platform.
+
+
+
+}
