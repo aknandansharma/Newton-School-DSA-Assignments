@@ -1,0 +1,12 @@
+static int DragonSlayer(int A, int B, int C,int D){
+//Enter your code here
+int output=A+B+C+D;
+if(output==18){
+    return 1;
+}else{
+    return 0;
+}
+
+}
+
+// This Program not passed the all test cases. 
