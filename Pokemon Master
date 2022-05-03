@@ -1,0 +1,10 @@
+static int PokemonMaster(int A, int B){
+//Enter your code here
+int a=A+B;
+if(a<=7){
+    return 1;
+}
+else{
+    return 0;
+}
+}
