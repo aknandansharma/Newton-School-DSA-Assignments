@@ -1,0 +1,6 @@
+static int Knight(int X, int Y){
+//Ener your code here
+int res=(X+Y)-1;
+return res;
+
+}
