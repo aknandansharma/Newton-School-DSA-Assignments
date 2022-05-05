@@ -1,0 +1,35 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+import java.util.Scanner;
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+                      // Your code here
+					  
+					  
+	Scanner sc=new Scanner(System.in);				  
+	int m=sc.nextInt();  //Hight 
+    int n=sc.nextInt();  //Breadth
+    int i, j;
+
+    for (i = 1; i <= m; i++) {
+
+        for (j = 1; j <= n; j++) {
+
+            if (i == 1 || i == m || j == 1 || j == n) // Logic to print
+
+                System.out.print("*"); // Tue?, print star
+
+            else
+
+                System.out.print(" "); // Tue?, print space
+
+        }
+
+        System.out.println();
+
+    }
+	}
+}
