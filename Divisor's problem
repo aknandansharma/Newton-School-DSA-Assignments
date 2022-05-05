@@ -1,0 +1,17 @@
+static int DivisorProblem(int N){
+//Enter your code here
+
+int d=N/25;
+int e=N/5;
+if(N>=100){
+    return d;
+}else{
+    return e;
+}
+ 
+
+
+
+}
+
+// I have only two test cases passes.
