@@ -1,0 +1,14 @@
+static int Rare(int n, int k){
+//Enter your code hereint
+int r;
+while(n>0){
+   // N=0;
+    r=n%10;
+    n=n/10;
+    if(r%k!=0)
+        return 0;
+    
+    
+}
+return 1;
+}
