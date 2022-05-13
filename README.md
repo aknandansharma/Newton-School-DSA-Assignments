@@ -1,2 +1,2 @@
-# college-Assignments-on-java-and-python
+# college-Assignments-on-JAVA 
 Amrita Vishwa Vidyapeetham MCA Assignments 
