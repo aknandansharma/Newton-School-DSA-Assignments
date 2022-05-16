@@ -1,0 +1,33 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+                      // Your code here
+		int temp;
+	boolean isPrime=true;
+	Scanner scan= new Scanner(System.in);
+	
+	//capture the input in an integer
+	int num=scan.nextInt();
+        scan.close();
+	for(int i=2;i<=num/2;i++)
+	{
+           temp=num%i;
+	   if(temp==0)
+	   {
+	      isPrime=false;
+	      break;
+	   }
+	}
+	//If isPrime is true then the number is prime else not
+	if(isPrime)
+	   System.out.println("YES");
+	else
+	   System.out.println("NO");
+	
+
+	}
+}
