@@ -1,0 +1,47 @@
+static class Student
+{
+    //Enter your code here
+
+    String name;
+    int eng;
+    int maths;
+    int hindi;
+}
+static Student[] createStudentArray(int n)
+    {
+       //Enter your code here
+        Student st[]=new Student[n];
+     for(int i=0;i<n;i++)
+     {
+         st[i]=new Student();
+         st[i].name=sc.next();
+         st[i].eng=sc.nextInt();
+         st[i].maths=sc.nextInt();
+         st[i].hindi=sc.nextInt();     
+            
+     }
+     return st; 
+    }
+    
+    static int engAverage(Student st[], int n)
+    {
+        //Enter your code here
+         int c=0;
+        for(int i=0;i<n;i++)
+        {
+            c=c+st[i].eng;
+        }
+        int d=c/n;
+        return d;
+    }
+    
+    static int avgPercentageOfClass(Student st[], int n)
+    {
+        //Enter your code here
+         int c=0;
+        for(int i=0;i<n;i++)
+        {
+            c +=(st[i].eng+st[i].maths+st[i].hindi)/3;
+        }
+        return c/n;
+    }
