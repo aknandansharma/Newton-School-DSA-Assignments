@@ -1,0 +1,35 @@
+import java.util.*;
+class Main{
+  public static void main(String args[]){
+    Scanner sc = new Scanner(System.in);
+    
+    long a = sc.nextLong();
+    
+    long b = sc.nextLong();
+    System.out.println(EuclideanAlgo(a,b));
+  }
+  static long EuclideanAlgo(long a, long b){
+    long r = 0;
+    if(b==0) return a;
+    else{
+      while(a%b > 0){
+      r = a%b;
+      a = b;
+      b = r;
+      }
+    }
+    return b;
+    /*
+    // Another Ways
+
+    while(a!=b){
+      if(a>b){
+        a=a-b;
+      }else{
+        b=b-a;
+      }
+      return a;
+    }
+    */
+  }
+}
