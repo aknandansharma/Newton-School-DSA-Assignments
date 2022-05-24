@@ -1,0 +1,98 @@
+import java.util.*;
+
+// Do not edit the Quadrilateral class
+abstract class Quadrilateral {
+   double side1;
+   double side2;
+   double side3;
+   double side4;
+
+   public Quadrilateral(double side1, double side2, double side3, double side4) {
+       this.side1 = side1;
+       this.side2 = side2;
+       this.side3 = side3;
+       this.side4 = side4;
+   }
+
+   protected abstract double getArea();
+
+   protected double getPerimeter() {
+       return (side1+side2+side3+side4);
+   }
+}
+
+// Implement class Parallelogram and methods getArea() and getPerimeter()
+class Parallelogram extends Quadrilateral {
+    //Write your code here
+     double height;
+    Parallelogram(double side1,double side2,double height){
+        super(side1,side2,side1,side2);
+        this.height = height;
+    }
+
+    @Override
+    protected double getArea() {
+        return side1*height;
+    }
+   
+
+   
+}
+
+// Implement class Rhombus and methods getArea() and getPerimeter()
+class Rhombus extends Parallelogram {
+    //Write your code here
+     Rhombus(double side,double height){
+        super(side,side,height);
+    } 
+   
+}
+
+//Implement class Rectangle and methods getArea() and getPerimeter()
+class Rectangle extends Parallelogram {
+    //Write your code here
+    Rectangle(double side1,double side2){
+        super(side1,side2,side2);
+    }
+  
+}
+//Implement class Square and methods getArea() and getPerimeter()
+class Square extends Rhombus {
+    //Write your code here
+     Square(double side){
+        super(side,side);
+    }
+   
+}
+
+
+
+// Do not edit the Main class
+class Main {
+   public static void main(String[] args) {
+       //Write your code here
+        Scanner scan = new Scanner(System.in);
+        double side1P = scan.nextDouble();
+        double side2P = scan.nextDouble();
+        double heightP = scan.nextDouble();
+        double sideRm = scan.nextDouble();
+        double heightRm = scan.nextDouble();
+        double lengthRec = scan.nextDouble();
+        double heightRec = scan.nextDouble();
+        double sideSquare = scan.nextDouble();
+        if(side1P<0||side2P<0||heightP<0||sideRm<0||heightRm<0||lengthRec<0||heightRec<0||sideSquare<0){
+            System.out.println("Length of a side cannot be negative. Please Enter a positive integer");
+        } else {
+            Parallelogram parallelogram = new Parallelogram(side1P,side2P,heightP);
+            System.out.println("Perimeter of Parallelogram is " + parallelogram.getPerimeter() +" and Area of Parallelogram is " + parallelogram.getArea());
+            Rhombus rhombus = new Rhombus(sideRm,heightRm);
+            System.out.println("Perimeter of Rhombus is " + rhombus.getPerimeter() +" and Area of Rhombus is " + rhombus.getArea());
+            Rectangle rectangle = new Rectangle(lengthRec,heightRec);
+            System.out.println("Perimeter of Rectangle is " + rectangle.getPerimeter() +" and Area of Rectangle is " + rectangle.getArea());
+            Square square = new Square(sideSquare);
+            System.out.println("Perimeter of Square is " + square.getPerimeter()+ " and Area of Square is " + square.getArea());
+        }
+
+       scan.close();
+   }
+}
