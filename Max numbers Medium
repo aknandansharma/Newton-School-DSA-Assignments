@@ -1,0 +1,45 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));		
+		  int T = Integer.parseInt(reader.readLine().trim());
+
+		for(int i = 0; i<T; i++) {
+			
+		  int n = Integer.parseInt(reader.readLine().trim());
+			String[] strNums = reader.readLine().split(" ");
+
+			int a[] = new int[n];
+
+			for(int j = 0; j< n ;j++) {
+				
+				a[j] = Integer.parseInt(strNums[j]);
+			}
+			int first = Integer.MIN_VALUE;
+        	int second = Integer.MIN_VALUE;
+        	int third = Integer.MIN_VALUE;
+
+       		for(int j=0; j<n; j++) {
+            	if(first < a[j]) {
+                	third = second;
+               	 	second = first;
+                	first = a[j];
+            	}
+            	else if (second < a[j]) {
+                	third = second;
+                	second =a[j];
+            	}
+            	else if(third<a[j]) {
+                	third= a[j];
+           		}
+            					
+        	}
+			System.out.println(first+" " +second+" " +third);	 	
+		}
+		System.out.println();
+	}
+}
