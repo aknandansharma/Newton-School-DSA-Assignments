@@ -1,0 +1,63 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+                      // Your code here
+		Scanner sc  = new Scanner(System.in);
+		int T = sc.nextInt();
+		long [] arr = new long [50000];
+			int index = 0;
+			int num = 0;
+			
+			while(index != 50000){
+				if(isPrime(num)){
+					arr[index] = num;
+					num++;
+					index++;
+				}
+				else{
+					num++;
+				}
+			}
+		for(int i=0; i<T; i++){
+			int L = sc.nextInt();
+			int R = sc.nextInt();
+			long sum = 0;
+			// int [] arr = new int [R];
+			// int index = 0;
+			// int num = 0;
+			// int sum = 0;
+			// while(index != R){
+			// 	if(isPrime(num)){
+			// 		arr[index] = num;
+			// 		num++;
+			// 		index++;
+			// 	}
+			// 	else{
+			// 		num++;
+			// 	}
+			// }
+			for(int j =L-1; j<=R-1; j++){
+				sum += arr[j];
+			}
+			System.out.println(sum);
+		}
+	}
+	public static boolean isPrime(int x){
+		for(int i=2; i*i<=x; i++){
+			if(x%i==0){
+				return false;
+			}
+		}
+		if(x==1 || x==0){
+			return false;
+		}
+		else if(x==2 || x==3){
+			return true;
+		}
+		return true;
+	}
+}
