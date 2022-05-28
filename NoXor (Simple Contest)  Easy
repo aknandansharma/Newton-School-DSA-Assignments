@@ -1,0 +1,24 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+       // Your code here
+		 Scanner s=new Scanner(System.in);
+         int n=s.nextInt();
+         int result=0;
+  	     long sum =0;
+         int[] arr=new int[n+1];
+         for(int i=0;i<n;i++){
+             arr[i]=s.nextInt();
+
+            //  add = add + (n-i) ^ arr[i];
+
+			result = ((n-(i+1))^arr[i]);
+            sum += result;
+         }
+         System.out.println(sum);
+	}
+}
