@@ -1,0 +1,6 @@
+static int LastDigit(int N){
+        // Enter your code here
+
+        int digit=N%10;
+        return digit;
+}
