@@ -1,0 +1,54 @@
+/*
+class Pair { 
+    int x; 
+    int y; 
+  
+    // Constructor 
+public Pair(int x, int y) 
+    { 
+        this.x = x; 
+        this.y = y; 
+    } 
+} 
+*/ 
+
+static Pair[] SortPair(Pair arr[], int n)  { 
+ //enter your code here
+ for(int i=0;i<n-1;i++)
+ {
+     for(int j=0;j<n-i-1;j++)
+     {
+         if(arr[j].x>arr[j+1].x)
+         {int t=arr[j].x;
+         int u=arr[j].y;
+         arr[j].x=arr[j+1].x;
+         arr[j].y=arr[j+1].y;
+         arr[j+1].x=t;
+         arr[j+1].y=u;
+         }
+         else if(arr[j].x==arr[j+1].x)
+         {
+             if(arr[j].y>arr[j+1].y)
+             {
+                int t=arr[j].x;
+         int u=arr[j].y;
+         arr[j].x=arr[j+1].x;
+         arr[j].y=arr[j+1].y;
+         arr[j+1].x=t;
+         arr[j+1].y=u;
+             }
+         }
+     }
+ }
+ int l,m;
+ for( l=0,m=n-1;l<m;l++,m--)
+ {
+            int t=arr[l].x;
+         int u=arr[l].y;
+         arr[l].x=arr[m].x;
+         arr[l].y=arr[m].y;
+         arr[m].x=t;
+         arr[m].y=u;
+ }
+ return arr;
+ }
