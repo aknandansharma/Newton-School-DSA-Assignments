@@ -1,0 +1,46 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+import static java.lang.Math.pow;
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+                      // Your code here
+		Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+        for (int i = 0; i < T; i++) {
+            int n = sc.nextInt();
+            nthprimedigitsnumber(n);
+        }
+	}
+	static void nthprimedigitsnumber(long n) {
+        long len = 1;
+        long prev_count = 0;
+        while (true) {
+            long curr_count = (long)(prev_count + pow(4, len));
+            if (prev_count < n && curr_count >= n)
+                break;
+            len++;
+            prev_count = curr_count;
+        }
+        for (int i = 1; i <= len; i++) {
+            for (long j = 1; j <= 4; j++) {
+                if (prev_count + pow(4, len - i) < n)
+                    prev_count += pow(4, len - i);
+                else {
+                    if (j == 1)
+                        System.out.print("2");
+                    else if (j == 2)
+                        System.out.print("3");
+                    else if (j == 3)
+                        System.out.print("5");
+                    else if (j == 4)
+                        System.out.print("7");
+                    break;
+                }
+            }
+        }
+        System.out.println();
+    }
+}
