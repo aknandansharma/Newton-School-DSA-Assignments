@@ -1,0 +1,48 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+
+	public static int find(int arr[]){
+		int n=arr.length;
+
+		if(n==2){
+			return Math.max(arr[0], arr[1]);
+		}
+
+		int pass[]=new int[n/2];
+
+		int ind=0;
+		for(int i=0;i<n;i +=4){
+			int f=(arr[i] > arr[i+1]) ? i:i+1;
+			int s=(arr[i+2] > arr[i+3]) ? i+2:i+3;
+
+			int fSum=arr[i]+arr[i+1];
+			int sSum=arr[i+2]+arr[i+3];
+
+			pass[ind] +=arr[f]+sSum-arr[s];
+			pass[ind+1] +=arr[s]+fSum-arr[f];
+			
+			ind +=2;
+
+		}
+		return find(pass);
+	}
+	public static void main (String[] args) {
+    	// Your code here
+
+		Scanner sc=new Scanner(System.in);
+
+		int n=sc.nextInt();
+		n=1<<n;
+		int arr[]=new int[n];
+		for(int i=0;i<n;++i){
+			arr[i]=sc.nextInt();
+		}
+
+		int ans=find(arr);
+		System.out.println(ans);
+	}
+}
