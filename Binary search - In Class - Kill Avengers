@@ -1,0 +1,82 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+
+	 public static boolean checkOcc(int[] cnt, int occ){
+       int a = cnt['A' - 'A'];
+       int t = cnt['T' - 'A'];
+       int c = cnt['C' - 'A'];
+       int g = cnt['G' - 'A'];
+
+       if(a>occ || t>occ || c>occ || g>occ)
+            return false;
+
+        return true;   
+    }
+
+    public static boolean findFatal(String str,int len){
+       // int a=0, g=0;t=0,c=0;
+        int cnt[]=new int[26];
+
+
+        //count all the array
+        for(int i=0;i<str.length();++i){
+            char ch=str.charAt(i);
+            cnt[ch - 'A']++;
+        }
+
+        for(int i=0;i<len;++i){
+            char ch=str.charAt(i);
+            cnt[ch - 'A']--;
+        }
+
+        int s=0, e=len;
+
+        while(e!=str.length()){
+            if(checkOcc(cnt, str.length()/4))
+                return true;
+
+            char ch=str.charAt(s);
+            cnt[ch-'A']++;
+
+            ch=str.charAt(e);
+            cnt[ch-'A']--;
+
+            s++; e++;
+        }
+
+        return false;
+    }
+
+
+
+
+
+	public static void main (String[] args) {
+        // Your code here
+
+		 Scanner sc=new Scanner(System.in);
+
+      int n=sc.nextInt();
+      sc.nextLine();
+      String str=sc.nextLine();
+
+      int s=0, e=n;
+      int ans=0;
+      while(s<e){
+          int m=(s+e)/2;
+
+          if(findFatal(str, m)){
+              e=m;
+              ans=m;
+
+          }else{
+              s=m+1;
+          }
+      }
+        System.out.println(ans);
+	}
+}
