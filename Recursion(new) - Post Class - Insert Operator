@@ -1,0 +1,31 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+ public class Main {
+	public static void main (String[] args) {
+         Scanner sc = new Scanner(System.in);
+		 int N= sc.nextInt();
+		 long k= sc.nextLong();
+		 long[] array= new long[N];
+		 for(int i=0; i<N; i++){
+			 array[i]= sc.nextLong();
+
+		 }   
+		 int res =solve(array.length,array,0,0,k);
+		 String result=(res==1)? "YES": "NO";
+		 System.out.println(result);
+		           // Your code here
+	}
+	static int solve(int n, long[] a,int i, long curr, long k){
+		if(i==n){
+			if(curr==k){return 1;}
+			return 0;
+
+		}
+		if(solve(n,a,i+1,curr+ a[i],k)==1){
+			return 1;}
+			return solve(n,a,i+1,curr-a[i],k);
+		}
+	}
