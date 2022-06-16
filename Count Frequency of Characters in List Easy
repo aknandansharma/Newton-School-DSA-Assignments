@@ -1,0 +1,22 @@
+// Function to insert element
+    public static void insert(ArrayList<Character> clist, char c)
+    {
+        clist.add(c);
+        // Your code here
+    }
+    
+    // Function to count frequency of element
+    public static void freq(ArrayList<Character> clist, char c)
+    {   
+        int count=0;
+        for(Character ch:clist){
+            if(ch==c)
+                count++;
+            
+        }
+        if(count!=0)
+            System.out.println(count);
+        else
+            System.out.println("Not Present");
+        // Your code here
+    }
