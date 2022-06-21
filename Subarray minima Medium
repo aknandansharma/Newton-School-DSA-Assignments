@@ -1,0 +1,51 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+        // Your code here
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int arr[]=new int[n];
+		for(int i=0;i<n;i++)
+			arr[i]=sc.nextInt();
+		
+		int left[]=new int[n];
+		int right[]=new int[n];
+
+		Stack<Integer> st=new Stack<Integer>();
+
+		for(int i=0;i<n;++i){
+			while(!st.empty() && arr[st.peek()]>arr[i])
+				st.pop();
+			
+			if(!st.empty())
+				left[i]=i-st.peek()-1;
+			else
+				left[i]=i;
+			
+			st.push(i);
+
+		}
+		st=new Stack<Integer>();
+
+		for(int i=n-1;i>=0;--i){
+			while(!st.empty() && arr[st.peek()]>arr[i])
+				st.pop();
+
+			if(!st.empty())
+				right[i]=st.peek()-i-1;
+			else	
+				right[i]=n-1-i;
+
+			st.push(i);
+		}
+		long ans=0;
+		for(int i=0;i<n;++i){
+			ans +=(long)(left[i]+1)*(right[i]+1)*arr[i];
+		}
+		System.out.println(ans);
+	}
+}
