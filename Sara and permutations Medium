@@ -1,0 +1,36 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+        // Your code here
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+
+		HashMap<Integer, Integer> map=new HashMap<>();
+
+		int arr[]=new int[n];
+		for(int i=0;i<n;++i){
+			arr[i]=sc.nextInt();
+			map.put(arr[i], i);
+		}
+
+		int l=n, r=-1;
+		for(int k=1;k<=n;++k){
+			int ind=map.get(k);
+
+			l=Math.min(l, ind);
+			r=Math.max(r, ind);
+
+			if((r-l)+1<=k)
+				System.out.print(1+" ");
+			else
+				System.out.print(0+" ");
+		}
+
+
+
+	}
+}
