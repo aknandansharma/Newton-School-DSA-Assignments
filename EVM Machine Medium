@@ -1,0 +1,35 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		HashMap<String,String> map=new HashMap<>();
+		TreeMap<String,Integer> map2=new TreeMap<>();
+
+		for(int i=0;i<n;++i){
+			String vID=sc.next();
+			String party=sc.next();
+			if(map.get(vID)==null){
+				map.put(vID,party);
+				if(map2.get(party)==null) map2.put(party,1);
+				else map2.put(party,map2.get(party)+1);
+			}
+		}
+		int maxVote=0;
+		for(Map.Entry<String,Integer> m:map2.entrySet()){
+			int v=m.getValue();
+			if(v>maxVote) maxVote=v;
+		}
+		for(Map.Entry<String,Integer> m:map2.entrySet()){
+			int v=m.getValue();
+			String p=m.getKey();
+
+			if(v==maxVote)
+				System.out.println(p+" "+v);
+		}
+	}
+}
