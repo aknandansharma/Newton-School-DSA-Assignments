@@ -1,0 +1,43 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static void main (String[] args) {
+         Scanner sc=new Scanner(System.in);
+		 int n=sc.nextInt();
+
+		 Integer arr[]=new Integer[n];
+		 for(int i=0;i<n;++i){
+			 arr[i]=sc.nextInt();
+		 }
+
+		 int ind=0;
+		 for(int b=31;b>=0;--b){
+			 int maxInd=-1;
+			 for(int i=ind;i<n;++i){
+				 if((arr[i] & (1<<b))!=0){
+					 if(maxInd==-1) maxInd=i;
+					 else maxInd=((arr[maxInd]>arr[i]) ? maxInd: i);
+				 }
+			 }
+			if(maxInd==-1)
+				continue;
+
+			int temp=arr[ind];
+			arr[ind]=arr[maxInd];
+			arr[maxInd]=temp;
+
+			for(int j=ind+1;j<n;j++)
+				if((arr[j] & (1<<b))!=0)
+					arr[j] ^=arr[ind];
+				
+			ind++;
+		 }
+		 int res=0;
+		 for(int i=0;i<n;++i)
+		 	res=Math.max(res, res^arr[i]);
+		System.out.println(res);
+	}
+}
