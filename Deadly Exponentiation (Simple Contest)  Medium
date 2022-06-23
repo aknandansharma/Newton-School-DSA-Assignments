@@ -1,0 +1,33 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	public static long modPow(long x, long p, long mod){
+		if(p==0)
+			return 1;
+		
+		if(p%2==1)
+			return (x%mod * modPow((x*x)%mod, (p-1)/2, mod))%mod;
+		else
+			return modPow((x*x)%mod, p/2,mod);
+	}
+	public static void main (String[] args) {
+        
+		Scanner sc=new Scanner(System.in);
+		long mod=1000000007;
+
+		long a=sc.nextLong();
+		long b=sc.nextLong();
+		long c=sc.nextLong();
+		long d=sc.nextLong();
+
+		long cd=(long)Math.pow(c,d);
+		long bcd=modPow(b,cd,mod-1);
+
+		long ans=modPow(a, bcd, mod);
+
+		System.out.println(ans%mod);
+	}
+}
