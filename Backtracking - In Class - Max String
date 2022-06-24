@@ -1,0 +1,42 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+	static int ans=0;
+
+    public static void swap(StringBuilder str, int x, int y){
+        char t=str.charAt(x);
+        str.setCharAt(x, str.charAt(y));
+        str.setCharAt(y, t);
+    }
+
+    public static void solve(int id, StringBuilder str, int k){
+        if(id==k){
+            ans=Math.max(ans, Integer.parseInt(str.toString()));
+            return;
+        }
+
+        for(int i=0;i<str.length()-1;i++){
+            for(int j=i+1;j<str.length();++j){
+                swap(str, i, j);
+
+                solve(id+1, str, k);
+
+                swap(str, i, j);
+            }
+        }
+    }
+
+	public static void main (String[] args) {
+                      // Your code here
+		Scanner sc=new Scanner(System.in);
+        String temp=sc.nextLine();
+        StringBuilder str=new StringBuilder(temp);
+
+        int k=sc.nextInt();
+        solve(0, str, k);
+        System.out.println(ans);
+	}
+}
