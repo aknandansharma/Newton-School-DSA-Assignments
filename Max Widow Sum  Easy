@@ -1,0 +1,49 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    
+    static ArrayList<Integer> findKMaxElement(int[] arr, int k, int n) {
+
+        PriorityQueue<Integer> queue = new PriorityQueue<>(
+            Collections.reverseOrder());
+ 
+        ArrayList<Integer> res = new ArrayList<>();
+        int i = 0;
+ 
+        for (; i < k; i++)
+            queue.add(arr[i]);
+        res.add(queue.peek());
+        queue.remove(arr[0]);
+ 
+        for (; i < n; i++) {
+            queue.add(arr[i]);
+            res.add(queue.peek());
+            queue.remove(arr[i - k + 1]);
+            
+        }
+ 
+        return res;
+    }
+	public static void main (String[] args) {
+                      // Your code here
+            Scanner sc = new Scanner(System.in);
+            int n = sc.nextInt();
+            int k = sc.nextInt();
+
+            int arr[] = new int[n];
+            for(int i=0; i<n; i++){
+                arr[i] = sc.nextInt();
+            }
+             List<Integer> res = findKMaxElement(arr, k, n);
+             long sum = 0;
+            for (int x : res){
+                sum += x;
+            }
+        
+            System.out.print(sum);
+            
+	}
+}
