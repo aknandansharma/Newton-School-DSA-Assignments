@@ -1,0 +1,10 @@
+static int firstTwo(int N){
+    int f = 0, s = 0;
+        while(N != 0){
+            s = f;
+            f = N%10;
+            N /= 10; 
+        }
+        int num = s*10 + f;
+        return num;
+}
