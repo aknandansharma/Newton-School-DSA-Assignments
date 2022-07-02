@@ -1,0 +1,30 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        sc.nextLine();
+        HashMap<String, Integer> map = new HashMap<>();
+
+        for(int i = 0; i < n; i++) {
+            String str = sc.nextLine();
+
+            if(map.get(str) == null) map.put(str, 1);
+            else map.put(str, map.get(str)+1);
+        }
+
+        int ans = 0;
+        for(String key:map.keySet()) {
+            // if(map.get(key) > ans)
+            //     ans = map.get(key);
+            // only in line using Math funcation
+            ans = Math.max(ans, map.get(key));
+        }
+        System.out.print(ans);
+    }
+}
