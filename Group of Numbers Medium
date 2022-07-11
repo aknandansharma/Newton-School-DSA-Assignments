@@ -1,0 +1,67 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Freq{
+	int frequency;
+	int num;
+}
+class Main {
+	public static void main (String[] args) {
+        Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		int a[]=new int[n];
+		HashMap<Integer,Integer> map=new HashMap<>();
+		for(int i=0;i<n;i++){
+			a[i]=s.nextInt();
+		}
+
+		for(int i=0;i<n;i++)
+		{
+			if(!map.containsKey(a[i]))
+				map.put(a[i],1);
+			else
+				map.put(a[i],map.get(a[i])+1);
+		}
+
+		int ms=map.size();
+		Freq freq[]=new Freq[ms];
+		int ind=0;
+		for(Map.Entry<Integer,Integer> m:map.entrySet())
+		{
+			freq[ind]=new Freq();
+			freq[ind].frequency=m.getValue();
+			freq[ind].num=m.getKey();
+			ind++;
+		}
+		sortPair(freq,ms);
+		for(int i=0;i<ms;i++)
+			System.out.print(freq[i].num+" ");
+	}
+	static Freq[] sortPair(Freq a[],int n)
+	{
+		for(int i=0;i<n-1;i++)
+		{
+			for(int j=0;j<n-1-i;j++)
+			{
+				if(a[j].frequency<a[j+1].frequency)
+				{
+					Freq tmp=a[j];
+					a[j]=a[j+1];
+					a[j+1]=tmp;
+				}
+				else if(a[j].frequency==a[j+1].frequency)
+				{
+					if(a[j].num<a[j+1].num)
+					{
+						Freq tmp=a[j];
+						a[j]=a[j+1];
+						a[j+1]=tmp;
+					}
+				}
+			}
+		}
+		return a;
+	}
+}
