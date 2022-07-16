@@ -1,0 +1,50 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static int[] arr = new int[1000001];
+
+    public static void solve(int n)
+    {
+        for(int i=1; i<=n; i++)
+            arr[i] = n+1;
+
+        ArrayDeque<Integer> q = new ArrayDeque<Integer>();
+        q.add(0);
+
+        while (!q.isEmpty())
+        {
+            int next = q.poll();
+            if (next > 0)
+            for (int i=Math.min(next, n/next); i > 0; i--)
+            {
+                if (arr[i*next] > arr[next] + 1)
+                {
+                    arr[i*next] = arr[next] + 1;
+                    q.add(i*next);
+                }
+            }
+
+            if (next < n && arr[next+1] > arr[next]+1)
+            {
+                arr[next+1] = arr[next] + 1;
+                q.add(next+1);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Scanner s = new Scanner(System.in);
+        solve(1000000);
+
+        int Q = s.nextInt();
+        for(int q = 1; q <= Q; q++)
+        {
+            int n = s.nextInt();
+            System.out.println(arr[n]);
+        }
+    }
+}
