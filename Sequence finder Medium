@@ -1,0 +1,44 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[3*n];
+        long leftArr[] = new long[3*n];
+        long rightArr[] = new long[3*n];
+        for(int i = 0; i < arr.length; i++) arr[i] = sc.nextInt();
+        long leftSum = 0;
+        long rightSum = 0;
+        PriorityQueue<Integer> leftPq = new PriorityQueue<>();
+        PriorityQueue<Integer> rightPq = new PriorityQueue<>(Collections.reverseOrder());
+        for (int i = 0; i < n; i++) {
+            leftSum += arr[i];
+            leftPq.add(arr[i]);
+        }
+        for (int i = 3*n-1; i >= 2*n; i--) {
+            rightSum += arr[i];
+            rightPq.add(arr[i]);
+        }
+        leftArr[n-1] = leftSum;
+        for (int i = n; i < 2*n; i++) {
+            leftPq.add(arr[i]);
+            leftSum += arr[i] - leftPq.poll();
+            leftArr[i] = leftSum;
+        }
+        rightArr[2*n]= rightSum;
+        for (int i = 2*n-1; i >= n; i--) {
+            rightPq.add(arr[i]);
+            rightSum += arr[i] - rightPq.poll();
+            rightArr[i] = rightSum;
+        }
+        long ans = Integer.MIN_VALUE;
+        for (int i = n-1; i <= 2*n-1 ; i++) {
+            ans = Math.max(ans,leftArr[i]-rightArr[i+1]);
+        }
+        System.out.println(ans);
+    }
+}
