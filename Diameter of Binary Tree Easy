@@ -1,0 +1,29 @@
+/*
+// Information about the class Node
+class Node {
+    int data;
+    Node left;
+    Node right;
+    Node(int data) {
+        this.data = data;
+        left = null;
+        right = null;
+    }
+}
+
+*/
+
+public static int heightTree(Node root)
+    {
+        if(root==null)
+            return 0;
+        else return 1+Math.max(heightTree(root.left),heightTree(root.right));
+    }
+
+
+public static int getDiameter(Node root) 
+{
+    if(root==null)
+        return 0;
+    return 1+Math.max(heightTree(root.left)+heightTree(root.right),Math.max(getDiameter(root.left),getDiameter(root.right)));
+ }
