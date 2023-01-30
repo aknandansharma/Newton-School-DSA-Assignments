@@ -1,0 +1,24 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String word = sc.next();
+        HashMap<Character, Character> hm = new HashMap<>();
+        int n = word.length();
+        char ch = 'a';
+        StringBuffer sb = new StringBuffer();
+        for(int i=0;i<n;i++){
+            char curr =  word.charAt(i);
+            if(!hm.containsKey(curr)){
+               hm.put(curr, ch);
+               ch++;
+            }
+            sb.append(hm.get(curr));
+        }
+        System.out.println(sb);
+    }
+}
