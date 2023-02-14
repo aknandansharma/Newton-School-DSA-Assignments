@@ -1,0 +1,25 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    public static void printCommonDigits(int a, int b) {
+    String strA = Integer.toString(a);
+    String strB = Integer.toString(b);
+    int len = Math.min(strA.length(), strB.length());
+    for (int i = 0; i < len; i++) {
+        if (strA.charAt(i) == strB.charAt(i)) {
+            System.out.print(strA.charAt(i) + " ");
+        }
+    }
+}
+
+    public static void main (String[] args) {
+        // Your code here
+        Scanner sc =new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        printCommonDigits(a, b);
+    }
+}
