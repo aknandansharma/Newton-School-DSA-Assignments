@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main
+
+public static void main(String[] args) {
+
+Scanner input = new Scanner(System.in);
+
+int Kinput.nextInt(); int N = input.nextInt();
+
+int topmost = 0; int total=0;
+
+int lastDistance = 0; int P[] = new int[N];
+
+for(int i=0;i<N; i++) {
+
+P[1]= input.nextInt();
+
+lastDistance = K PIN-1]+P[0];
+
+in max = 0; W system.out.println(last); for(int i=1;i<N; i++){ if((P[i]-P[i-1])>max) {
+
+max P[1] P[1-1]:
+
+lastDistance>max) {
+
+System.out.println(K-lastDistance);
+
+else System.out.println(k-max);
