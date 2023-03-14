@@ -1,0 +1,106 @@
+/**************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+***************************/
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class Main
+{
+  public static String hashString (String input, int substringLength)
+  {
+
+    // Step 1: Break the string into substrings
+    String[]substrings = getSubstrings (input, substringLength);
+
+
+    // Step 2: Sort the substrings by weight and character order
+    Arrays.sort (substrings, new Comparator < String > ()
+		 {
+
+		 @Override public int compare (String s1, String s2)
+		 {
+
+		 int weight1 = getWeight (s1);
+		 int weight2 = getWeight (s2); if (weight1 == weight2)
+		 {
+
+		 return s1.compareTo (s2);}
+
+		 return weight1 - weight2;}
+
+		 }
+    );
+
+
+    // Step 3: Concatenate the unique substrings to create the final hash
+    StringBuilder hash = new StringBuilder ();
+
+  for (String substring:substrings)
+      {
+
+	if (!hash.toString ().contains (substring))
+	  {
+
+	    hash.append (substring);
+
+	  }
+
+      }
+
+    return hash.toString ();
+
+  }
+
+
+  private static String[] getSubstrings (String input, int substringLength)
+  {
+
+    // Code to break the input string into substrings of the given length
+    int numSubstrings = input.length () / substringLength;
+
+    String[]substrings = new String[numSubstrings];
+
+    for (int i = 0; i < numSubstrings; i++)
+      {
+
+	  int startIndex = i * substringLength;
+
+	int endIndex = startIndex + substringLength;
+
+	substrings[i] = input.substring (startIndex, endIndex);
+
+      }
+    return substrings;
+
+  }
+
+
+  private static int getWeight (String substring)
+  {
+
+    // Code to calculate the weight of a substring
+    int weight = 0;
+    for (char c : substring.toCharArray()) {
+        switch (c) {
+            case '+':
+                weight += 3;
+                break;
+            case '-':
+                weight += 2;
+                break;
+            case '*':
+                weight += 1;
+                break;
+        }
+    }
+    return weight;
+  }
+	public static void main(String[] args) {
+	  
+		System.out.println(hashString("-+++-++-",2));
+	}
+}
