@@ -1,2 +1,1 @@
-# college-Assignments-on-JAVA 
-Amrita Vishwa Vidyapeetham MCA Assignments 
+# Newton School All DSA-Assignments-on-JAVA 
