@@ -1,0 +1,26 @@
+class Solution {
+    public int minFlipsMonoIncr(String s) {
+         // enter your code here.
+         int n = s.length();
+    int[] zeros = new int[n+1]; // number of zeros encountered so far
+    int[] ones = new int[n+1];  // number of ones encountered so far
+    
+    for(int i = 0; i < n; i++) {
+        zeros[i+1] = zeros[i];
+        ones[i+1] = ones[i];
+        if(s.charAt(i) == '0') {
+            zeros[i+1]++;
+        } else {
+            ones[i+1]++;
+        }
+    }
+    
+    int ans = Integer.MAX_VALUE;
+    for(int i = 0; i <= n; i++) {
+        int flips = ones[i] + (zeros[n] - zeros[i]);
+        ans = Math.min(ans, flips);
+    }
+    
+    return ans;
+    }
+}
