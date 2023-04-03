@@ -1,0 +1,36 @@
+class Solution {
+    public int rob(int[] nums) {
+    if (nums == null || nums.length == 0) {
+        return 0;
+    }
+    
+    int n = nums.length;
+    
+    if (n == 1) {
+        return nums[0];
+    }
+    
+    // Rob the first house to the (n - 2)th house
+    int max1 = robHouse(nums, 0, n - 2);
+    
+    // Rob the second house to the last house
+    int max2 = robHouse(nums, 1, n - 1);
+    
+    // Return the maximum amount robbed
+    return Math.max(max1, max2);
+}
+
+private int robHouse(int[] nums, int start, int end) {
+    int prevMax = 0;  // Max amount that can be robbed from the previous house
+    int currMax = 0;  // Max amount that can be robbed from the current house
+    
+    for (int i = start; i <= end; i++) {
+        int temp = currMax;
+        currMax = Math.max(prevMax + nums[i], currMax);
+        prevMax = temp;
+    }
+    
+    return currMax;
+}
+
+}
