@@ -1,0 +1,31 @@
+class Solution {
+    public int kthLargestValue(int[][] matrix, int k) {
+    int m = matrix.length;
+    int n = matrix[0].length;
+    int[][] prefixXor = new int[m][n];
+
+    // Compute prefix XOR values
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            int topLeft = (i > 0 && j > 0) ? prefixXor[i-1][j-1] : 0;
+            int top = (i > 0) ? prefixXor[i-1][j] : 0;
+            int left = (j > 0) ? prefixXor[i][j-1] : 0;
+            prefixXor[i][j] = matrix[i][j] ^ topLeft ^ top ^ left;
+        }
+    }
+
+    // Flatten the prefix XOR values into a 1D array and sort it
+    int[] flattened = new int[m * n];
+    int index = 0;
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            flattened[index++] = prefixXor[i][j];
+        }
+    }
+    Arrays.sort(flattened);
+
+    // Return the kth largest value
+    return flattened[m * n - k];
+}
+
+}
