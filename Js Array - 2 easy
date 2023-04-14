@@ -1,0 +1,8 @@
+function first(array, n) {
+  return array.slice(0, n);
+}
+
+// example usage
+// const inputArray = [5, 4, 3, 2, 1];
+// const newArrayOfFirst2Numbers = first(inputArray, 2);
+// console.log(newArrayOfFirst2Numbers); // [5, 4]
